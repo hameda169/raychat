@@ -4,28 +4,36 @@ import { Profile } from "./components/profile";
 import { FormInput } from "./components/formInput";
 import { Header } from "./components/header";
 import { Title } from "./components/title";
+import ThemeContext from "./theme";
 
 export default () => (
-  <div style={styles.body}>
-    <div style={styles.container}>
-      <Header />
-      <Title />
-      <FormInput />
-      <div style={styles.result}>
-        <Profile />
-        <Repos />
+  <ThemeContext.Consumer>
+    {value => (
+      <div style={{ ...styles.body, backgroundColor: value.background }}>
+        <div style={styles.container}>
+          <Header />
+          <Title />
+          <FormInput />
+          <div style={styles.result}>
+            <Profile />
+            <Repos />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )}
+  </ThemeContext.Consumer>
 );
 
 const styles = {
   body: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    margin: -8,
+    marginBottom: -20,
+    height: "99vh"
   },
   container: {
-    height: "90vh",
+    height: "100%",
     width: "62vw",
     display: "flex",
     flexDirection: "column",

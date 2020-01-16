@@ -16,7 +16,7 @@ export const Repos = () => (
         display: "flex",
         width: "100%",
         height: "12vh",
-        justifyContent: "space-around"
+        justifyContent: "space-between"
       }}
     >
       <Repo />
@@ -27,7 +27,7 @@ export const Repos = () => (
         display: "flex",
         width: "100%",
         height: "12vh",
-        justifyContent: "space-around"
+        justifyContent: "space-between"
       }}
     >
       <Repo />
