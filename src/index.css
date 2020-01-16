@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "fontello";
+  src: local("fontello"), url(../public/fontello.ttf) format("truetype");
+}
+.icon {
+  font-family: "fontello";
+}

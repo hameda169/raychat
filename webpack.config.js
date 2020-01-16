@@ -1,3 +1,12 @@
+const CSSLoader = {
+  loader: "css-loader",
+  options: {
+    modules: "global",
+    importLoaders: 2,
+    sourceMap: false
+  }
+};
+
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   module: {
@@ -11,11 +20,16 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
+        loader: "html-loader"
+      },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: ["style-loader", CSSLoader]
+      },
+      {
+        test: /\.ttf$/,
+        loader: "url-loader?limit=100000"
       }
     ]
   },
@@ -26,3 +40,4 @@ module.exports = {
     })
   ]
 };
+// const commonConfig = merge([parts.loadCSS()]);
