@@ -15,8 +15,11 @@ export const Theme = props => {
     highlight: "#1f1f1f",
     secondary: "#666"
   };
-  const [state, setState] = useState(light);
+  const [state, setState] = useState(
+    localStorage.getItem("theme") === "light" ? light : dark
+  );
   const changeTheme = () => {
+    localStorage.setItem("theme", state.name === "light" ? "dark" : "light");
     setState(state.name === "light" ? dark : light);
   };
 

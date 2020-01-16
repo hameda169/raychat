@@ -15,6 +15,12 @@ const Square = () => (
   </ThemeConsumer>
 );
 export const Repo = props => {
+  const data = props.data || {};
+  const name = data.name,
+    desc = data.description,
+    lang = data.language,
+    starts = data.stargazers_count,
+    forks = data.forks;
   return (
     <ThemeConsumer>
       {value => (
@@ -38,7 +44,7 @@ export const Repo = props => {
               fontSize: 20
             }}
           >
-            name
+            {name ? name : ""}
           </Text>
           <Text
             style={{
@@ -46,19 +52,27 @@ export const Repo = props => {
               padding: 0,
               borderWidth: 1,
               color: value.text,
-              fontSize: 20
+              fontSize: 14
             }}
           >
-            name
+            {desc ? desc : ""}
           </Text>
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <Square />
-            <Text style={{ margin: 0, paddingRight: 30 }}>Python</Text>
-            <Square />
-            <Text style={{ margin: 0, paddingRight: 30 }}>77</Text>
-            <Square />
-            <Text style={{ margin: 0 }}>6</Text>
-          </div>
+          {name ? (
+            <div style={{ display: "flex", justifyContent: "flex-start" }}>
+              <Square />
+              <Text style={{ margin: 0, paddingRight: 30, color: value.text }}>
+                {lang ? lang : "NOT_SET"}
+              </Text>
+              <Square />
+              <Text style={{ margin: 0, paddingRight: 30, color: value.text }}>
+                {starts ? starts : 0}
+              </Text>
+              <Square />
+              <Text style={{ margin: 0, color: value.text }}>
+                {forks ? forks : 0}
+              </Text>
+            </div>
+          ) : null}
         </div>
       )}
     </ThemeConsumer>
