@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeConsumer } from "../theme";
 import { Text } from "./common";
-const Square = () => (
+const Square = ({ code, star, fork }) => (
   <ThemeConsumer>
     {value => (
       <Text
@@ -9,7 +9,7 @@ const Square = () => (
         style={{ color: value.secondary, fontSize: 20, paddingRight: 5 }}
         nb
       >
-        {"\ue800"}
+        {fork ? "\ue806" : code ? "\ue804" : star ? "\ue805" : "\ue800"}
       </Text>
     )}
   </ThemeConsumer>
@@ -32,7 +32,8 @@ export const Repo = props => {
             display: "flex",
             justifyContent: "space-around",
             flexDirection: "column",
-            paddingLeft: "5%"
+            paddingLeft: "2%",
+            marginRight: "2%"
           }}
         >
           <Text
@@ -41,7 +42,7 @@ export const Repo = props => {
               padding: 0,
               borderWidth: 1,
               color: "#2792ce",
-              fontSize: 20
+              fontSize: 14
             }}
           >
             {name ? name : ""}
@@ -52,22 +53,29 @@ export const Repo = props => {
               padding: 0,
               borderWidth: 1,
               color: value.text,
-              fontSize: 14
+              fontSize: 12
             }}
           >
             {desc ? desc : ""}
           </Text>
           {name ? (
-            <div style={{ display: "flex", justifyContent: "flex-start" }}>
-              <Square />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                fontSize: 11
+              }}
+            >
+              <Square code />
               <Text style={{ margin: 0, paddingRight: 30, color: value.text }}>
                 {lang ? lang : "NOT_SET"}
               </Text>
-              <Square />
+              <Square star />
               <Text style={{ margin: 0, paddingRight: 30, color: value.text }}>
                 {starts ? starts : 0}
               </Text>
-              <Square />
+              <Square fork />
               <Text style={{ margin: 0, color: value.text }}>
                 {forks ? forks : 0}
               </Text>

@@ -21,19 +21,20 @@ const FormInputComp = props => {
             <input
               style={{
                 borderWidth: 0,
-                padding: 10,
+                padding: 20,
                 borderRadius: 10,
                 backgroundColor: value.highlight,
                 color: value.text,
-                fontSize: 25
+                fontSize: 14
               }}
               onChange={e => setUsername(e.target.value.replace("@", ""))}
+              placeholder={"@username"}
             />
             <button
               style={{
                 borderWidth: 0,
-                padding: 15,
-                backgroundColor: value.text,
+                padding: 20,
+                backgroundColor: username === "" ? value.highlight : value.text,
                 borderRadius: 10
               }}
               onClick={() => props.getUser(username)}
@@ -43,11 +44,11 @@ const FormInputComp = props => {
                 style={{
                   padding: 0,
                   margin: 0,
-                  color: value.background,
-                  fontSize: 20
+                  color: username === "" ? value.secondary : value.background,
+                  fontSize: 15
                 }}
               >
-                {props.loading ? "\uf10c" : "\ue800"}
+                {props.loading ? "\ue839" : "\ue802"}
               </Text>
             </button>
           </div>

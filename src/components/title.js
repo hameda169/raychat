@@ -5,7 +5,7 @@ import { ThemeConsumer } from "../theme";
 export const Title = () => (
   <ThemeConsumer>
     {value => (
-      <Text style={{ fontSize: 25, fontWeight: "bold", color: value.text }}>
+      <Text style={{ fontSize: 20, color: value.text }}>
         Enter a github username,
         <br />
         to see the magic:

@@ -6,7 +6,7 @@ const ReposComp = props => (
   <div
     style={{
       height: "25vh",
-      width: "65%",
+      width: "75%",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between"
@@ -17,7 +17,7 @@ const ReposComp = props => (
         display: "flex",
         width: "100%",
         height: "12vh",
-        justifyContent: "space-between"
+        justifyContent: "flex-start"
       }}
     >
       {props.repos ? props.repos.slice(0, 2).map(x => <Repo data={x} />) : null}
@@ -28,7 +28,7 @@ const ReposComp = props => (
         display: "flex",
         width: "100%",
         height: "12vh",
-        justifyContent: "space-between"
+        justifyContent: "flex-start"
       }}
     >
       {props.repos ? props.repos.slice(2).map(x => <Repo data={x} />) : null}

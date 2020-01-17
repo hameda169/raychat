@@ -12,18 +12,18 @@ export const Header = () => (
           alignItems: "center"
         }}
       >
-        <Text style={{ fontSize: 35, fontWeight: "bold", color: value.text }}>
-          Github Profiles
-        </Text>
+        <Text style={{ fontSize: 30, color: value.text }}>Github Profiles</Text>
         <input
+          className={"icon"}
           style={{
-            height: 30,
-            width: 30,
+            fontSize: 30,
             borderWidth: 0,
-            backgroundColor: value.text
+            backgroundColor: value.background,
+            color: value.text
           }}
           onClick={value.changeTheme}
           type={"button"}
+          value={value.name === "light" ? "\ue801" : "\ue803"}
         />
       </div>
     )}

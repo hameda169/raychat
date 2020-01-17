@@ -9,7 +9,7 @@ const Item = ({ title, val, color, web, loading }) => {
       {value => (
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 15,
             color: "#888",
             backgroundColor: loading ? value.highlight : null,
             width: "100%"
@@ -52,23 +52,30 @@ const ProfileComp = props => {
       {value => (
         <div
           style={{
-            width: "25%"
+            width: "25%",
+            marginRight: "5%"
           }}
         >
           {props.loading || props.success ? (
             <div
               style={{
                 height: "25vh",
+                width: "25vh",
                 backgroundColor: value.highlight,
                 borderRadius: "8px"
               }}
             >
               {!props.loading && props.success ? (
-                <img src={data.avatar_url} width={"100%"} height={"100%"} />
+                <img
+                  src={data.avatar_url}
+                  width={"100%"}
+                  height={"100%"}
+                  style={{ borderRadius: "8px" }}
+                />
               ) : null}
             </div>
           ) : null}
-          <Text style={{ fontSize: 25, fontWeight: "bold", color: value.text }}>
+          <Text style={{ fontSize: 16, fontWeight: "bold", color: value.text }}>
             {name ? name : ""}
           </Text>
           <Item

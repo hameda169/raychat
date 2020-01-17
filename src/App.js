@@ -42,6 +42,6 @@ const styles = {
   result: {
     height: "50vh",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "flex-start"
   }
 };

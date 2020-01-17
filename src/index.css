@@ -5,3 +5,7 @@
 .icon {
   font-family: "fontello";
 }
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
